@@ -11,7 +11,6 @@ Metadata:
       - S3Bucket
       - S3Folder
       - RedisNodeType
-      - KinesisShardCount
       - ThingworxServerUrl
       - ThingworxApiKey
       - FargateCPU
@@ -100,10 +99,6 @@ Parameters:
     Description: "Timeout for DataIngestRouter Lambda"
     Type: Number
     Default: 900
-  KinesisShardCount:
-    Description: "Number of Kinesis shards"
-    Type: Number
-    Default: 2
   RedisNodeType:
     Description: "Redis node type"
     Type: String
@@ -314,7 +309,8 @@ Resources:
     Properties: 
       Name: IoTCore2ThingworxDataStream
       RetentionPeriodHours: 24
-      ShardCount: !Ref KinesisShardCount
+      StreamModeDetails:
+        StreamMode: ON_DEMAND
 
   IoTTopicRuleRole:
     Type: AWS::IAM::Role

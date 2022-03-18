@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>thingworxDataFetcherLambda</groupId>
+    <groupId>software.amazon.samples</groupId>
     <artifactId>ThingworxDataFetcherLambda</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
@@ -44,48 +44,48 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-events</artifactId>
-            <version>3.6.0</version>
+            <version>3.11.0</version>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-log4j2</artifactId>
-            <version>1.2.0</version>
+            <version>1.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.13.0</version>
+            <version>2.17.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.13.2</version>
+            <version>2.17.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j18-impl</artifactId>
-            <version>2.13.0</version>
+            <version>2.17.1</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>1.18.22</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>3.16.3</version>
+            <version>3.16.8</version>
         </dependency>
         <dependency>
-            <groupId>com.thingworx</groupId>
-            <artifactId>thingworx-java-sdk</artifactId>
+            <groupId>thingworkx-java-sdk</groupId>
+            <artifactId>thingworkx-client</artifactId>
             <version>7.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.68.Final</version>
+            <version>4.1.74.Final</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.uuid</groupId>

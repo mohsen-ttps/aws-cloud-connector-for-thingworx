@@ -14,10 +14,10 @@ phases:
       - docker tag ${ECR_REPO_NAME}:latest ${AWS_ACCOUNT_NUMBER}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:scan
       - docker push ${AWS_ACCOUNT_NUMBER}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:scan
       - aws ecr wait image-scan-complete --region ${AWS_REGION} --repository-name ${ECR_REPO_NAME} --image-id imageTag=scan
-      - findings=`aws ecr describe-image-scan-findings --region ${AWS_REGION} --repository-name ${ECR_REPO_NAME} --image-id imageTag=scan --query 'length(imageScanFindings.findings[*])'`
-      - echo $findings
+      - findings= aws ecr describe-image-scan-findings --region ${AWS_REGION} --repository-name ${ECR_REPO_NAME} --image-id imageTag=scan --query 'length(imageScanFindings.findings[?contains(severity, `HIGH`) == `true`].severity)'
+      - echo "${ECR_REPO_NAME} scan result has [$findings] high risk findings"
       - |
-        if [ "$findings" -eq 0 ]; then
+        if [[ "$findings" -eq 0 ]]; then
           echo No findings in ECR scan. Pushing to latest
           echo Tagging the scanned ECR to latest
           docker tag ${ECR_REPO_NAME}:latest ${AWS_ACCOUNT_NUMBER}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:latest
